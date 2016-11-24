@@ -17,10 +17,12 @@ namespace MVVMonkey.Playground.ViewModel
 
         public DetailsProductViewModel()
         {
+            var ok = new DisplayAlertAction("Ok", async () => {
+                await this.NavigationService.GoAsync("MainView");
+            });
+
             this.AddToCartCommand = new ViewModelCommand(this, async () => {
-                await this.DisplayAlertService.DisplayAlertAsync("Products Show Case", "Done!", new DisplayAlertAction("Ok", async () => {
-                    await this.NavigationService.GoAsync("MainView");
-                }));
+                await this.DisplayAlertService.DisplayAlertAsync("Products Show Case", $"Product {this.Product.Name} added successfully", ok);
             });
         }
 

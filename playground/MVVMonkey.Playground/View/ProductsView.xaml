@@ -15,7 +15,13 @@
           <ImageCell
               Text="{Binding Name}"
               Detail="{Binding Price, StringFormat='{0:c}'}"
-              ImageSource="{Binding Image}" />
+              ImageSource="{Binding Image}">
+
+            <ImageCell.ContextActions>
+              <MenuItem Clicked="AddToCartClicked" CommandParameter="{Binding .}" Text="Add to cart" />
+            </ImageCell.ContextActions>
+            
+          </ImageCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>

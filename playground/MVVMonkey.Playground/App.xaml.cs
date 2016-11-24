@@ -14,9 +14,9 @@ namespace MVVMonkey.Playground
 
         private void InitializeNavigation(INavigationService navigationService)
         {
-            navigationService.Configure("MainView", typeof(View.MainView));
-            navigationService.Configure("ProductsView", typeof(View.ProductsView));
-            navigationService.Configure("DetailsProductView", typeof(View.DetailsProductView));
+            navigationService.Configure(nameof(View.MainView), typeof(View.MainView));
+            navigationService.Configure(nameof(View.ProductsView), typeof(View.ProductsView));
+            navigationService.Configure(nameof(View.DetailsProductView), typeof(View.DetailsProductView));
         }
     }
 }

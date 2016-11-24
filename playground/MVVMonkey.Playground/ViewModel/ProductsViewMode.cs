@@ -10,6 +10,8 @@ namespace MVVMonkey.Playground.ViewModel
     public class ProductsViewMode : ViewModelBase, INavigationViewModel
     {
         public ICommand RefreshCommand { get; }
+        public ICommand AddToCartCommand { get; }
+        
         public ObservableCollection<Model.Product> Products { get; } = new ObservableCollection<Model.Product>();
 
         public ProductsViewMode()
@@ -23,6 +25,13 @@ namespace MVVMonkey.Playground.ViewModel
                     Image = "monkey.png",
                     Price = this.Products.Count + 1
                 });
+            });
+
+            this.AddToCartCommand = new ViewModelCommand<Model.Product>(this, async (product) => {
+                var ok = new DisplayAlertAction("Ok", async () => {
+                    await this.NavigationService.GoAsync("MainView");
+                });
+                await this.DisplayAlertService.DisplayAlertAsync("Product Show Case", $"Product {product.Name} added successfully", ok);
             });
         }
 
