@@ -1,23 +1,18 @@
 ﻿using MVVMonkey.Core.Services;
-using Xamarin.Forms;
+using System;
 
-namespace MVVMonkey.Core.Application
+namespace Xamarin.Forms
 {
-    public abstract class BaseApplication : Xamarin.Forms.Application
+    public static class BaseApplication
     {
-        public void Configure()
+        public static void Configure(this Application application, Action<INavigationService> initializeNavigation)
         {
-            this.RegisterServices();
-            var navigationService = DependencyService.Get<INavigationService>();
-            InitializeNavigation(navigationService);
-        }
-
-        protected void RegisterServices()
-        {
+            if (initializeNavigation == null) throw new ArgumentNullException(nameof(initializeNavigation));
             DependencyService.Register<INavigationService, NavigationService>();
             DependencyService.Register<IDisplayAlertService, DisplayAlertService>();
-        }
 
-        protected abstract void InitializeNavigation(INavigationService navigationService);
+            var navigationService = DependencyService.Get<INavigationService>();
+            initializeNavigation(navigationService);
+        }
     }
 }

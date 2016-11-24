@@ -1,6 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MVVMonkey.Playground.View.DetailsProductView">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="MVVMonkey.Playground.View.DetailsProductView"
+             xmlns:pages="clr-namespace:Xamarin.Forms.Pages;assembly=Xamarin.Forms.Pages"
+             Title="{Binding Title}"
+             >
+
+
+  <StackLayout Padding="20">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+      <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding Product.Image}" />
+      <StackLayout Grid.Row="1"
+                   BackgroundColor="#80000000"
+                   Padding="0">
+        <Label TextColor="White"
+               Text="{Binding Product.Name}"
+               FontSize="16"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+      </StackLayout>
+      <ScrollView Grid.Row="2">
+        <StackLayout>
+          <Label Text="{Binding Product.Description}"
+                 FontSize="16"
+                 HorizontalOptions="Center"
+                 VerticalOptions="CenterAndExpand" />
+
+          <StackLayout Orientation="Horizontal">
+            <Label Text="Preço"
+                   FontSize="16" />
+            <Label Text="{Binding Product.Price, StringFormat='{0:c}'}"
+                   FontSize="16" />
+          </StackLayout>
+        </StackLayout>
+      </ScrollView>
+
+    </Grid>
+  </StackLayout>
+
 </ContentPage>

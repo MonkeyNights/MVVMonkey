@@ -7,7 +7,13 @@ namespace MVVMonkey.Playground.View
         public ProductsView()
         {
             InitializeComponent();
-            this.BindingContext = new ViewModel.ProductsViewMode();
+            var vm = new ViewModel.ProductsViewMode();
+            this.BindingContext = vm;
+            this.listView.ItemSelected += async (sender, e) =>
+            {
+                var parameter = new Core.Services.NavigationParameters("product", e.SelectedItem as Model.Product);
+                await vm.NavigationService.GoAsync("DetailsProductView", parameter);
+            };
         }
     }
 }

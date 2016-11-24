@@ -23,6 +23,10 @@ namespace MVVMonkey.Playground.Droid
             var cv = typeof(Xamarin.Forms.CarouselView);
             var assembly = System.Reflection.Assembly.Load(cv.FullName);
             LoadApplication(new App());
+
+            var x = typeof(Xamarin.Forms.Themes.DarkThemeResources);
+            x = typeof(Xamarin.Forms.Themes.LightThemeResources);
+            x = typeof(Xamarin.Forms.Themes.Android.UnderlineEffect);
         }
     }
 }

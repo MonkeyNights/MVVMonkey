@@ -13,6 +13,8 @@ namespace MVVMonkey.Playground.View
         public DetailsProductView()
         {
             InitializeComponent();
+
+            this.BindingContext = new ViewModel.DetailsProductViewModel();
         }
     }
 }

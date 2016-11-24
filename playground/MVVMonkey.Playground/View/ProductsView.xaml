@@ -5,7 +5,8 @@
              Title="{Binding Title}"
              >
   <StackLayout Padding="20">
-    <ListView ItemsSource="{Binding Products}"
+    <ListView x:Name="listView" 
+          ItemsSource="{Binding Products}"
           RefreshCommand="{Binding RefreshCommand}"
           IsRefreshing="{Binding IsBusy}" 
           IsPullToRefreshEnabled="True">
