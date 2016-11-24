@@ -1,5 +1,6 @@
 ﻿using MVVMonkey.Core.Services;
 using MVVMonkey.Core.ViewModel;
+using System.Windows.Input;
 
 namespace MVVMonkey.Playground.ViewModel
 {
@@ -10,6 +11,17 @@ namespace MVVMonkey.Playground.ViewModel
         {
             get { return _product; }
             set { SetProperty(ref _product, value); }
+        }
+
+        public ICommand AddToCartCommand { get; }
+
+        public DetailsProductViewModel()
+        {
+            this.AddToCartCommand = new ViewModelCommand(this, async () => {
+                await this.DisplayAlertService.DisplayAlertAsync("Products Show Case", "Done!", new DisplayAlertAction("Ok", async () => {
+                    await this.NavigationService.GoAsync("MainView");
+                }));
+            });
         }
 
         public void OnNavigate(NavigationParameters navigationParameters)

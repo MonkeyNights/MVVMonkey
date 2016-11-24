@@ -9,9 +9,9 @@ namespace MVVMonkey.Playground.View
             InitializeComponent();
             var vm = new ViewModel.ProductsViewMode();
             this.BindingContext = vm;
-            this.listView.ItemSelected += async (sender, e) =>
+            this.listView.ItemTapped += async (sender, e) =>
             {
-                var parameter = new Core.Services.NavigationParameters("product", e.SelectedItem as Model.Product);
+                var parameter = new Core.Services.NavigationParameters("product", e.Item as Model.Product);
                 await vm.NavigationService.GoAsync("DetailsProductView", parameter);
             };
         }

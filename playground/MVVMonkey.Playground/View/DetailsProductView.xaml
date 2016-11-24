@@ -37,6 +37,8 @@
             <Label Text="{Binding Product.Price, StringFormat='{0:c}'}"
                    FontSize="16" />
           </StackLayout>
+          
+          <Button Text="Add to Cart" Command="{Binding AddToCartCommand}" />
         </StackLayout>
       </ScrollView>
 

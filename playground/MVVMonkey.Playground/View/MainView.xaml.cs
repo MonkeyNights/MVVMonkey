@@ -11,11 +11,11 @@ namespace MVVMonkey.Playground.View
             var vm = new ViewModel.MainViewModel();
 
             this.BindingContext = vm;
-            this.carouselView.ItemSelected += async (sender, e) =>
-            {
-                var parameter = new Core.Services.NavigationParameters("product", e.SelectedItem as Model.Product);
-                await vm.NavigationService.GoAsync("DetailsProductView", parameter);
-            };
+            //this.carouselView.PositionSelected += async (sender, e) =>
+            //{
+            //    var parameter = new Core.Services.NavigationParameters("product", e.SelectedPosition as Model.Product);
+            //    await vm.NavigationService.GoAsync("DetailsProductView", parameter);
+            //};
         }
     }
 }
