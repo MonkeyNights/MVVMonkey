@@ -4,31 +4,32 @@
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              x:Class="MVVMonkey.Playground.View.MainView"
              Title="{Binding Title}">
-  <StackLayout Padding="20">
-    <!--<cv:CarouselView ItemsSource="{Binding Products}">
-      <cv:CarouselView.ItemTemplate>
-        <DataTemplate>
-          <Grid>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="*"/>
-               <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding Image}" />
-            <StackLayout Grid.Row="1"
-                         BackgroundColor="#80000000"
-                         Padding="12">
-              <Label TextColor="White"
-                     Text="{Binding Name}"
-                     FontSize="16"
-                     HorizontalOptions="Center"
-                     VerticalOptions="CenterAndExpand"/>
-                        
-            </StackLayout>
-          </Grid>
-        </DataTemplate>
-      </cv:CarouselView.ItemTemplate>
-    </cv:CarouselView>-->
 
-    <Button Text="Show all Products" Command="{Binding ShowAllProductsCommand}" />
-  </StackLayout>
+  <ScrollView>
+    <StackLayout Padding="20">
+      <cv:CarouselView ItemsSource="{Binding Products}">
+        <cv:CarouselView.ItemTemplate>
+          <DataTemplate>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+              </Grid.RowDefinitions>
+              <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding Image}" />
+              <StackLayout Grid.Row="1"
+                           BackgroundColor="#80000000"
+                           Padding="0">
+                <Label TextColor="White"
+                       Text="{Binding Name}"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"/>
+              </StackLayout>
+            </Grid>
+          </DataTemplate>
+        </cv:CarouselView.ItemTemplate>
+      </cv:CarouselView>
+      <Button Text="Show all Products" Command="{Binding ShowAllProductsCommand}" />
+    </StackLayout>
+  </ScrollView>
 </ContentPage>
