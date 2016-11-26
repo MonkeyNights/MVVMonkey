@@ -7,7 +7,7 @@ namespace MVVMonkey.Playground
     {
         public App()
         {
-            this.Configure(this.InitializeNavigation);
+            this.Configure(InitializeNavigation);
 
             MainPage = new NavigationPage(new View.MainView());
         }

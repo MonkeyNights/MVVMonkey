@@ -10,13 +10,13 @@ namespace MVVMonkey.Core.Services
 
         public DisplayAlertAction(string title, Action action)
         {
-            this.Title = title;
-            this.Action = action;
+            Title = title;
+            Action = action;
         }
 
         public DisplayAlertAction(string title)
         {
-            this.Title = title;
+            Title = title;
         }
     }
 }

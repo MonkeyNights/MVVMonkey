@@ -11,7 +11,7 @@ namespace MVVMonkey.Core.Services
         private Dictionary<string, Type> _pagesDictionary = new Dictionary<string, Type>();
 
         public Page CurrentPage
-            => Xamarin.Forms.Application.Current.MainPage;
+            => Application.Current.MainPage;
 
         public void Configure(string key, Type pageType)
             => _pagesDictionary[key] = pageType;
@@ -23,7 +23,7 @@ namespace MVVMonkey.Core.Services
 
         public async Task GoAsync(string pageKey, NavigationParameters parameters = null, NavigationBehavior navigationBehavior = NavigationBehavior.Default)
         {
-            var newInstacePage = this.CreateNewInstacePage(pageKey, parameters);
+            var newInstacePage = CreateNewInstacePage(pageKey, parameters);
             if (navigationBehavior == NavigationBehavior.ClearBackstak)
             {
                 CurrentPage.Navigation.InsertPageBefore(newInstacePage, CurrentPage.Navigation.NavigationStack.FirstOrDefault());

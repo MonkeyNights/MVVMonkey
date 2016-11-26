@@ -10,7 +10,7 @@ namespace MVVMonkey.Playground.View
 
             var vm = new ViewModel.MainViewModel();
 
-            this.BindingContext = vm;
+            BindingContext = vm;
             //this.carouselView.PositionSelected += async (sender, e) =>
             //{
             //    var parameter = new Core.Services.NavigationParameters("product", e.SelectedPosition as Model.Product);

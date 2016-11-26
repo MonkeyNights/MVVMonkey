@@ -14,15 +14,15 @@ namespace MVVMonkey.Playground.ViewModel
         public MainViewModel()
         {
             var products = Model.Product.ListAll();
-            this.ShowAllProductsCommand = new Command(async () =>
+            ShowAllProductsCommand = new Command(async () =>
             {
-                await this.NavigationService.GoAsync("ProductsView", new Core.Services.NavigationParameters("products", products));
+                await NavigationService.GoAsync("ProductsView", new Core.Services.NavigationParameters("products", products));
             });
 
-            this.Title = "Products Show Case";
-            this.Products = new ObservableCollection<Model.Product>();
+            Title = "Products Show Case";
+            Products = new ObservableCollection<Model.Product>();
             foreach (var product in products)
-                this.Products.Add(product);
+                Products.Add(product);
         }
     }
 }

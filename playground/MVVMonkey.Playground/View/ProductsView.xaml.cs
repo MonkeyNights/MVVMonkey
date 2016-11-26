@@ -4,14 +4,14 @@ namespace MVVMonkey.Playground.View
 {
     public partial class ProductsView : ContentPage
     {
-        private readonly ViewModel.ProductsViewMode _viewModel = new ViewModel.ProductsViewMode();
+        private readonly ViewModel.ProductsViewModel _viewModel = new ViewModel.ProductsViewModel();
 
         public ProductsView()
         {
             InitializeComponent();
             
-            this.BindingContext = _viewModel;
-            this.listView.ItemSelected += async (sender, e) =>
+            BindingContext = _viewModel;
+            listView.ItemSelected += async (sender, e) =>
             {
                 var parameter = new Core.Services.NavigationParameters("product", e.SelectedItem as Model.Product);
                 await _viewModel.NavigationService.GoAsync("DetailsProductView", parameter);

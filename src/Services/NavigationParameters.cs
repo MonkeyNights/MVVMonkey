@@ -10,18 +10,18 @@ namespace MVVMonkey.Core.Services
         public NavigationParameters() { }
         public NavigationParameters(string key, object value)
         {
-            this.Add(key, value);
+            Add(key, value);
         }
         public NavigationParameters(string queryString)
         {
-            var parameters = this.ParseQueryString(queryString);
+            var parameters = ParseQueryString(queryString);
             foreach (var parameter in parameters)
-                this.Add(parameter.Key, parameter.Value);
+                Add(parameter.Key, parameter.Value);
         }
 
         public T GetValue<T>(string parameterName)
         {
-            if (!this.ContainsKey(parameterName))
+            if (!ContainsKey(parameterName))
                 return default(T);
 
             return (T)Convert.ChangeType(this[parameterName], typeof(T));

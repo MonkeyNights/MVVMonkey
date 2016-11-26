@@ -18,18 +18,18 @@ namespace MVVMonkey.Playground.ViewModel
         public DetailsProductViewModel()
         {
             var ok = new DisplayAlertAction("Ok", async () => {
-                await this.NavigationService.GoAsync("MainView");
+                await NavigationService.GoAsync("MainView");
             });
 
-            this.AddToCartCommand = new ViewModelCommand(this, async () => {
-                await this.DisplayAlertService.DisplayAlertAsync("Products Show Case", $"Product {this.Product.Name} added successfully", ok);
+            AddToCartCommand = new ViewModelCommand(this, async () => {
+                await DisplayAlertService.DisplayAlertAsync("Products Show Case", $"Product {Product.Name} added successfully", ok);
             });
         }
 
         public void OnNavigate(NavigationParameters navigationParameters)
         {
-            this.Product = navigationParameters.GetValue<Model.Product>("product");
-            this.Title = this.Product.Name;
+            Product = navigationParameters.GetValue<Model.Product>("product");
+            Title = Product.Name;
         }
     }
 }

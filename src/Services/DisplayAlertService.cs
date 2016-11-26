@@ -7,12 +7,12 @@ namespace MVVMonkey.Core.Services
     public class DisplayAlertService : IDisplayAlertService
     {
         public Page CurrentPage
-            => Xamarin.Forms.Application.Current.MainPage;
+            => Application.Current.MainPage;
 
 
         public async Task DisplayActionSheetAsync(string title, DisplayAlertAction cancel, DisplayAlertAction destruction, params DisplayAlertAction[] buttons)
         {
-            var result = await this.CurrentPage.DisplayActionSheet(title, cancel.Title, destruction?.Title, buttons.Select(b => b.Title).ToArray());
+            var result = await CurrentPage.DisplayActionSheet(title, cancel.Title, destruction?.Title, buttons.Select(b => b.Title).ToArray());
             if (result.Equals(cancel.Title))
                 cancel?.Action?.Invoke();
             if (destruction != null && result.Equals(destruction.Title))

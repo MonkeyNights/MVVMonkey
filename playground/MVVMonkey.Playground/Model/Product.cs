@@ -1,9 +1,7 @@
-﻿using PropertyChanged;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MVVMonkey.Playground.Model
 {
-    [ImplementPropertyChanged]
     public class Product
     {
         public int Id { get; set; }

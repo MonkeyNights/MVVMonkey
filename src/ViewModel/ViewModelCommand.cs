@@ -57,11 +57,11 @@ namespace MVVMonkey.Core.ViewModel
 
         public bool CanExecute(object parameter)
         {
-            if (this._baseViewModel.IsBusy)
+            if (_baseViewModel.IsBusy)
                 return false;
 
-            if (this._canExecute != null)
-                return this._canExecute(parameter);
+            if (_canExecute != null)
+                return _canExecute(parameter);
 
             return true;
         }
@@ -70,18 +70,18 @@ namespace MVVMonkey.Core.ViewModel
         {
             try
             {
-                this._baseViewModel.IsBusy = true;
-                this._execute(parameter);
+                _baseViewModel.IsBusy = true;
+                _execute(parameter);
             }
             finally
             {
-                this._baseViewModel.IsBusy = false;
+                _baseViewModel.IsBusy = false;
             }
         }
 
         public void ChangeCanExecute()
         {
-            var changed = this.CanExecuteChanged;
+            var changed = CanExecuteChanged;
             if (changed != null)
                 changed(this, EventArgs.Empty);
         }

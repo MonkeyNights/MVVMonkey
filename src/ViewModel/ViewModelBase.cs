@@ -24,8 +24,8 @@ namespace MVVMonkey.Core.ViewModel
 
         public ViewModelBase(string title = "")
         {
-            this.NavigationService = DependencyService.Get<INavigationService>();
-            this.DisplayAlertService = DependencyService.Get<IDisplayAlertService>();
+            NavigationService = DependencyService.Get<INavigationService>();
+            DisplayAlertService = DependencyService.Get<IDisplayAlertService>();
             Title = title;
         }
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MVVMonkey.Playground.View
 {
@@ -14,7 +8,7 @@ namespace MVVMonkey.Playground.View
         {
             InitializeComponent();
 
-            this.BindingContext = new ViewModel.DetailsProductViewModel();
+            BindingContext = new ViewModel.DetailsProductViewModel();
         }
     }
 }
