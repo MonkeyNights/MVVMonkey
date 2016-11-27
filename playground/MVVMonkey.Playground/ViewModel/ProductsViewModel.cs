@@ -29,7 +29,7 @@ namespace MVVMonkey.Playground.ViewModel
 
             AddToCartCommand = new ViewModelCommand<Model.Product>(this, async (product) => {
                 var ok = new DisplayAlertAction("Ok", async () => {
-                    await NavigationService.GoAsync("MainView");
+                    await NavigationService.GoAsync<MainViewModel>();
                 });
                 await DisplayAlertService.DisplayAlertAsync("Product Show Case", $"Product {product.Name} added successfully", ok);
             });

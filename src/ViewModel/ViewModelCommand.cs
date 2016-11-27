@@ -8,15 +8,15 @@ namespace MVVMonkey.Core.ViewModel
         public ViewModelCommand(ViewModelBase baseViewModel, Action<T> execute) : base(baseViewModel, o => execute((T)o))
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
+                throw new ArgumentNullException(nameof(execute));
         }
 
         public ViewModelCommand(ViewModelBase baseViewModel, Action<T> execute, Func<T, bool> canExecute) : base(baseViewModel, o => execute((T)o), o => canExecute((T)o))
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
+                throw new ArgumentNullException(nameof(execute));
             if (canExecute == null)
-                throw new ArgumentNullException("canExecute");
+                throw new ArgumentNullException(nameof(canExecute));
         }
     }
 
@@ -81,9 +81,7 @@ namespace MVVMonkey.Core.ViewModel
 
         public void ChangeCanExecute()
         {
-            var changed = CanExecuteChanged;
-            if (changed != null)
-                changed(this, EventArgs.Empty);
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

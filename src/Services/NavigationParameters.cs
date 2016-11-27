@@ -22,7 +22,7 @@ namespace MVVMonkey.Core.Services
         public T GetValue<T>(string parameterName)
         {
             if (!ContainsKey(parameterName))
-                return default(T);
+                throw new ArgumentOutOfRangeException(parameterName);
 
             return (T)Convert.ChangeType(this[parameterName], typeof(T));
         }

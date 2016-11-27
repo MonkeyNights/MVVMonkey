@@ -30,6 +30,7 @@
           </DataTemplate>
         </cv:CarouselView.ItemTemplate>
       </cv:CarouselView>
+      <Label Text="{Binding WelcomeMessage}" />
       <Button Text="Show all Products" Command="{Binding ShowAllProductsCommand}" />
     </StackLayout>
   </ScrollView>
