@@ -7,8 +7,6 @@ namespace MVVMonkey.Playground.View
         public DetailsProductView()
         {
             InitializeComponent();
-
-            BindingContext = new ViewModel.DetailsProductViewModel();
         }
     }
 }

@@ -8,15 +8,17 @@ namespace MVVMonkey.Playground
         public App()
         {
             this.Configure(InitializeNavigation);
-
-            MainPage = new NavigationPage(new View.MainView());
         }
 
         private void InitializeNavigation(INavigationService navigationService)
         {
-            navigationService.Configure(nameof(View.MainView), typeof(View.MainView));
-            navigationService.Configure(nameof(View.ProductsView), typeof(View.ProductsView));
-            navigationService.Configure(nameof(View.DetailsProductView), typeof(View.DetailsProductView));
+            navigationService.Configure<View.LoginView, ViewModel.LoginViewModel>();
+            navigationService.Configure<View.ForgotMyPasswordView, ViewModel.ForgotMyPasswordViewModel>();
+            navigationService.Configure<View.MainView, ViewModel.MainViewModel>();
+            navigationService.Configure<View.ProductsView, ViewModel.ProductsViewModel>();
+            navigationService.Configure<View.DetailsProductView, ViewModel.DetailsProductViewModel>();
+
+            navigationService.Start<ViewModel.LoginViewModel>(navigationPage: false);
         }
     }
 }

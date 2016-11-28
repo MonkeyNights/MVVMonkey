@@ -18,7 +18,7 @@ namespace MVVMonkey.Playground.ViewModel
         public DetailsProductViewModel()
         {
             var ok = new DisplayAlertAction("Ok", async () => {
-                await NavigationService.GoAsync("MainView");
+                await NavigationService.GoAsync<MainViewModel>();
             });
 
             AddToCartCommand = new ViewModelCommand(this, async () => {
